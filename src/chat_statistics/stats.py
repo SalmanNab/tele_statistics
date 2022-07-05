@@ -52,10 +52,10 @@ class ChatStatistics:
         # normalize, reshape for final wordcloud
         text_content = self.normalizer.normalize(text_content)
         text_content = arabic_reshaper.reshape(text_content)
-        text_content = get_display(text_content)
-        text_content = self.normalizer.normalize(text_content)
-        text_content = arabic_reshaper.reshape(text_content)
-        text_content = get_display(text_content)
+        # text_content = get_display(text_content)
+        # text_content = self.normalizer.normalize(text_content)
+        # text_content = arabic_reshaper.reshape(text_content)
+        # text_content = get_display(text_content)
 
         logger.info("Generating word cloud...")
         # generate word cloud
@@ -65,6 +65,7 @@ class ChatStatistics:
             background_color='white',
             max_font_size=250,
             # 300 is deafult
+            # stopwords=self.stop_words,
         ).generate(text_content)
 
         logger.info(f"Saving word cloud to {output_dir}")
